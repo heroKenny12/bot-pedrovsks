@@ -20,16 +20,17 @@ module.exports = {
     if(comando == "criador") message.channel.send("O cridor se chama Pedro e seu nome no discord é hero_kenny")
     if(comando == "help"){
         message.channel.send(`Lista de Comandos: 
-        p!help
-        p!ping
-        p!c#melhorquejava ou p!javaéruim
-        p!fakemsg
-        p!javavirus
-        p!medidorJV
-        p!JVheal
-        p!piada
-        p!criador`)
+        pdv!help
+        pdv!ping
+        pdv!c#melhorquejava ou p!javaéruim
+        pdv!fakemsg
+        pdv!javavirus
+        pdv!medidorJV
+        pdv!JVheal
+        pdv!piada
+        pdv!criador`)
     }
+    //if(comando != "help" || comando != "ping" || comando != "c#melhorquejava" || comando != "javaéruim" || comando != "fakemsg" || comando != "javavirus" || comando != "medidorjv" || comando != "jvheal" || comando != "piada" || comando != "criador" || comando != "javaeruim") message.channel.send("use o comando pdv!help para ver os meus comandos")
     if(comando == "fakemsg"){
             message.channel.send(args)
     }
