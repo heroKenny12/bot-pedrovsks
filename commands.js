@@ -9,7 +9,8 @@ module.exports = {
  async function execute(message){
     if(message.author.bot) return
     if(message.channel.type == "dm") return
-
+    if (!message.content.startsWith(config.prefix)) return;
+    
     const args = message.content.slice(config.prefix.length).trim().split(/ +/g)
     const comando = args.shift().toLowerCase()
 
@@ -17,8 +18,8 @@ module.exports = {
         const m = message.channel.send(`Pong!`)
         message.channel.send(`A Latência é ${m.createdTimestamp - message.createdTimestamp}ms. A Latencia da API é ${Math.round(client.ping)}ms`)
     }
-    if(comando == "criador") message.channel.send("O cridor se chama Pedro e seu nome no discord é hero_kenny")
-    if(comando == "help"){
+    else if(comando == "criador") message.channel.send("O cridor se chama Pedro e seu nome no discord é hero_kenny")
+    else if(comando == "help"){
         message.channel.send(`Lista de Comandos: 
         pdv!help
         pdv!ping
@@ -30,18 +31,17 @@ module.exports = {
         pdv!piada
         pdv!criador`)
     }
-    //if(comando != "help" || comando != "ping" || comando != "c#melhorquejava" || comando != "javaéruim" || comando != "fakemsg" || comando != "javavirus" || comando != "medidorjv" || comando != "jvheal" || comando != "piada" || comando != "criador" || comando != "javaeruim") message.channel.send("use o comando pdv!help para ver os meus comandos")
-    if(comando == "fakemsg"){
+    else if(comando == "fakemsg"){
             message.channel.send(args)
     }
-    if(comando == "javaéruim" || comando == "c#melhorquejava" || comando == "javaeruim") message.channel.send("c# é melhor que java e ponto final.")
-    if(comando == "javavirus"){
+    else if(comando == "javaéruim" || comando == "c#melhorquejava" || comando == "javaeruim") message.channel.send("c# é melhor que java e ponto final.")
+    else if(comando == "javavirus"){
         message.channel.send("como detectar que ele esta no seu computador")
         message.channel.send("use o comando p!medidorJV")
     }
-    if(comando == "medidorjv") message.channel.send("você esta infectado use o comando JVheal para saber como se curar")
-    if(comando == "jvheal") message.channel.send("tratamento para para vírus:\nC#, JS e Pyton (vai matar ele de odio) mas tera que pagar 1 milhao de dol")
-    if(comando == "piada"){
+    else if(comando == "medidorjv") message.channel.send("você esta infectado use o comando JVheal para saber como se curar")
+    else if(comando == "jvheal") message.channel.send("tratamento para para vírus:\nC#, JS e Pyton (vai matar ele de odio) mas tera que pagar 1 milhao de dol")
+    else if(comando == "piada"){
         var rnd = Math.floor((Math.random() * 7) + 1);
        switch(rnd){
        case 1:
@@ -57,13 +57,11 @@ module.exports = {
         break
         case 3:
         message.channel.send(`Por que o Luke Skywalker guarda todos os livros?
-
             Pra não deixar que a princesa Leia.
         `)
         break
         case 4:
         message.channel.send(`Por que a cobra queria uma escova?
-
         Porque ela cansou de Serpente.
         
         `)
@@ -81,5 +79,8 @@ module.exports = {
 
             Você vai na sorveteria, lá tem cobertura.`)    
     }
+    }
+    else{
+        message.channel.send("use o comando pdv!help para ver os comandos")
     }
 }
