@@ -10,26 +10,35 @@ module.exports = {
     if(message.author.bot) return
     if(message.channel.type == "dm") return
     if (!message.content.startsWith(config.prefix)) return;
-    
+
     const args = message.content.slice(config.prefix.length).trim().split(/ +/g)
     const comando = args.shift().toLowerCase()
 
-    if(comando == "ping"){
+    /*if(comando == "ping"){
         const m = message.channel.send(`Pong!`)
         message.channel.send(`A Latência é ${m.createdTimestamp - message.createdTimestamp}ms. A Latencia da API é ${Math.round(client.ping)}ms`)
+    }*/
+    if(comando == "criador") message.channel.send("O cridor se chama Pedro e seu nome no discord é hero_kenny")
+    else if(comando == "bombajv") {
+        message.channel.send("a bomba javavirus sera ativada em:")
+        message.channel.send("3")
+        message.channel.send("2")
+        message.channel.send("1")
+        message.channel.send("0")
+        message.channel.send(":exploding_head:")
     }
-    else if(comando == "criador") message.channel.send("O cridor se chama Pedro e seu nome no discord é hero_kenny")
     else if(comando == "help"){
         message.channel.send(`Lista de Comandos: 
         pdv!help
-        pdv!ping
         pdv!c#melhorquejava ou p!javaéruim
         pdv!fakemsg
         pdv!javavirus
         pdv!medidorJV
         pdv!JVheal
         pdv!piada
-        pdv!criador`)
+        pdv!criador
+        pdv!bombajv
+        pdv!bombaconstruct ou pdv!bombaC2`)
     }
     else if(comando == "fakemsg"){
             message.channel.send(args)
@@ -41,6 +50,14 @@ module.exports = {
     }
     else if(comando == "medidorjv") message.channel.send("você esta infectado use o comando JVheal para saber como se curar")
     else if(comando == "jvheal") message.channel.send("tratamento para para vírus:\nC#, JS e Pyton (vai matar ele de odio) mas tera que pagar 1 milhao de dol")
+    else if(comando == "bombaconstruct" || comando == "bombac2"){
+        message.channel.send("a bomba construct sera ativada em:")
+        message.channel.send("3")
+        message.channel.send("2")
+        message.channel.send("1")
+        message.channel.send("0")
+        message.channel.send(":exploding_head:")
+    }
     else if(comando == "piada"){
         var rnd = Math.floor((Math.random() * 7) + 1);
        switch(rnd){
